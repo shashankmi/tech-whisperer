@@ -1,6 +1,7 @@
 [
   {
     "id": "21348024-4eaf-81f8-b689-fb89338dedb4",
+    "slug": "the-case-for-gateway-agnostic-api-governance",
     "title": "The Case for Gateway-Agnostic API Governance",
     "date": "2025-06-15",
     "tags": [
@@ -9,6 +10,6 @@
       "Platform Strategy",
       "OpenAPI"
     ],
-    "url": "https://notion.so/213480244eaf81f8b689fb89338dedb4"
+    "summary": ""
   }
 ]
