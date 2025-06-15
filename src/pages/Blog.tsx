@@ -1,51 +1,37 @@
 import { useEffect, useState } from "react";
 
 interface BlogPost {
-  id: string;
   title: string;
+  summary: string;
   date: string;
-  tags: string[];
-  url: string;
+  slug: string;
 }
 
-export default function Blog() {
+const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
-    fetch("/content/posts.json")
+    fetch(`${import.meta.env.BASE_URL}content/posts.json`)
       .then((res) => res.json())
       .then(setPosts)
-      .catch(() => console.error("Failed to load posts.json"));
+      .catch((err) => console.error("Failed to load posts", err));
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">📝 Blog</h1>
-      <ul className="space-y-6">
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">📝 Blog</h1>
+      {posts.length === 0 && <p>No blog posts found.</p>}
+      <ul className="space-y-4">
         {posts.map((post) => (
-          <li key={post.id} className="border-b pb-4">
-            <a
-              href={post.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xl font-semibold text-blue-600 hover:underline"
-            >
-              {post.title}
-            </a>
-            <div className="text-sm text-gray-500">{new Date(post.date).toDateString()}</div>
-            <div className="mt-1 text-xs text-gray-700">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-block bg-gray-200 px-2 py-0.5 mr-2 rounded"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+          <li key={post.slug}>
+            <h2 className="text-xl font-semibold">{post.title}</h2>
+            <p className="text-gray-600">{post.summary}</p>
+            <p className="text-sm text-gray-400">{post.date}</p>
           </li>
         ))}
       </ul>
     </div>
   );
-}
+};
+
+export default Blog;
