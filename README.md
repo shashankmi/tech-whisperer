@@ -36,6 +36,89 @@ npm i
 npm run dev
 ```
 
+## Using this project in VS Code
+
+**Important:** This is a **web application**, not a VS Code extension. You should open it as a regular project in VS Code, not try to install it as an extension.
+
+### Prerequisites
+
+1. **Install Node.js and npm** - [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+2. **Install VS Code** - [Download from code.visualstudio.com](https://code.visualstudio.com/)
+
+### Opening the Project in VS Code
+
+You have several options:
+
+**Option 1: Using Command Line**
+```sh
+# Clone and open in VS Code
+git clone <YOUR_GIT_URL>
+cd <YOUR_PROJECT_NAME>
+code .
+```
+
+**Option 2: Using VS Code Directly**
+1. Open VS Code
+2. Go to `File > Open Folder...`
+3. Navigate to and select your cloned repository folder
+4. Click "Select Folder"
+
+**Option 3: Clone from within VS Code**
+1. Open VS Code
+2. Press `Ctrl+Shift+P` (Windows/Linux) or `Cmd+Shift+P` (Mac)
+3. Type "Git: Clone" and press Enter
+4. Paste your repository URL
+5. Choose a folder location
+6. Click "Open" when prompted
+
+### Setting Up Your Development Environment
+
+Once the project is open in VS Code:
+
+1. **Install dependencies:**
+   - Open the integrated terminal (`Ctrl+` ` or View > Terminal)
+   - Run: `npm install`
+
+2. **Install recommended VS Code extensions** (VS Code will prompt you):
+   - ESLint
+   - Tailwind CSS IntelliSense
+   - TypeScript and JavaScript Language Features
+   - React snippets
+
+3. **Start the development server:**
+   - In the terminal, run: `npm run dev`
+   - The app will open at `http://localhost:8080`
+   - Changes you make will automatically reload in the browser
+
+### Available Commands
+
+Run these in the VS Code integrated terminal:
+
+- `npm run dev` - Start development server with hot reload
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Check code quality
+- `npm run deploy` - Deploy to GitHub Pages
+
+### Troubleshooting
+
+**"Module not found" errors?**
+- Make sure you've run `npm install` first
+- Try deleting `node_modules` and `package-lock.json`, then run `npm install` again
+
+**Port 8080 already in use?**
+- Stop any other development servers
+- Or change the port in `vite.config.ts`
+
+**TypeScript errors?**
+- Ensure you have TypeScript installed: `npm install -g typescript`
+- Reload VS Code window: `Ctrl+Shift+P` > "Developer: Reload Window"
+
+**Can't see changes in browser?**
+- Make sure `npm run dev` is running
+- Check the terminal for any error messages
+- Try hard refresh in browser: `Ctrl+Shift+R` (Windows/Linux) or `Cmd+Shift+R` (Mac)
+
 **Edit a file directly in GitHub**
 
 - Navigate to the desired file(s).
